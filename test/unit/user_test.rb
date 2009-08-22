@@ -8,6 +8,7 @@ class UserTest < ActiveSupport::TestCase
 
     should_validate_presence_of :email
     should_validate_uniqueness_of :email
+    should_have_many :subscriptions, :feeds
 
     should "generate an access token" do
       assert @user.access_token.present?
