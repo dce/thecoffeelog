@@ -7,6 +7,7 @@ class FeedTest < ActiveSupport::TestCase
     end
 
     should_validate_presence_of :url
+    should_have_many :subscriptions, :users
     
     should "return a vaild feed from NY Times homepage url" do
       assert_equal @feed.url, "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
