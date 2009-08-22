@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :subscriptions
-  has_many :feeds, :through => "subscriptions"
+  has_many :feeds, :through => :subscriptions
 
   before_save :generate_access_token
 
