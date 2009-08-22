@@ -9,11 +9,12 @@ class EmailProcessor
   end
  
   def find_user
-    @user = User.find(:first, :conditions => {:reception_email => @options[:to]})
+    logger.info("Finding user: #{@options[:from]}")
+    @user = User.find_or_create_user_by_email(:email => @options[:from]})
   end
  
   def do_stuff
-		logger.debug("got message")
+		logger.info("Processing message.")
   end
  
   def initialize(*args)
