@@ -9,12 +9,14 @@ class EmailProcessor
   end
  
   def find_user
-    logger.info("Finding user: #{@options[:from]}")
-    @user = User.find_or_create_user_by_email(:email => @options[:from]})
+    Rails.logger.info("Finding user: #{@options[:from]}")
+    @user = User.find_or_create_by_email(@options[:from])
+    Rails.logger.flush
   end
  
   def do_stuff
-		logger.info("Processing message.")
+		Rails.logger.info("Processing message.") #TODO: create subscription
+		Rails.logger.flush
   end
  
   def initialize(*args)

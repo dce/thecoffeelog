@@ -3,13 +3,11 @@ require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 require 'rubygems'
 require 'beanstalk-client'
 require 'yaml'
-# beanstalk_config = YAML::load(File.open("#{RAILS_ROOT}/config/beanstalk.yml"))
  
 @logger = Logger.new("#{RAILS_ROOT}/log/queue.#{Rails.env}.log")
 @logger.level = Logger::INFO
- 
-# BEANSTALK = Beanstalk::Pool.new(beanstalk_config[Rails.env])
-BEANSTALK = Beanstalk::Pool.new(['127.0.0.1:11300'])
+
+BEANSTALK = Beanstalk::Pool.new(["#{BEANSTALK['ip']}:#{BEANSTALK['port']}"])
 
 loop do
   job = BEANSTALK.reserve
