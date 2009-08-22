@@ -19,16 +19,18 @@ class Entry < ActiveRecord::Base
   end
 
   def mark_as_last_sent
+    generate_unique_key
+
     self.feed.update_attributes(
       :last_sent_entry_hash => self.unique_key,
       :last_sent_entry_published_at => self.published_at
     )
   end
 
-  private
-
   def generate_unique_key
-    key_identifiers = "#{self.feed.try :title} #{self.title} #{self.link}"
-    self.unique_key ||= Digest::MD5.hexdigest(key_identifiers)
+    self.unique_key ||= begin
+      key_identifiers = "#{self.feed.try :title} #{self.title} #{self.link}"
+      Digest::MD5.hexdigest(key_identifiers)
+    end
   end
 end
