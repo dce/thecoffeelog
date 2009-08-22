@@ -12,11 +12,15 @@ class SubscriptionTest < ActiveSupport::TestCase
 
       context "being created for a new feed" do
         setup do
-          @user.subscriptions.create(:feed => Feed.for("http://www.nytimes.com"))
+          @sub = @user.subscriptions.create(:feed => Feed.for("http://www.nytimes.com"))
         end
 
         should_change "@user.feeds.count", :by => 1
         should_change "Feed.count", :by => 1
+
+        should "set subscription title to feed title" do
+          assert_equal "NYT &gt; Home Page", @sub.title
+        end
       end
 
       context "being created for an existing feed" do

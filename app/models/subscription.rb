@@ -4,4 +4,12 @@ class Subscription < ActiveRecord::Base
 
   validates_presence_of :user
   validates_presence_of :feed
+
+  before_create :set_title
+
+  private
+
+  def set_title
+    self.title = self.feed.title if self.feed
+  end
 end
