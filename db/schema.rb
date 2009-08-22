@@ -9,14 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822015606) do
+ActiveRecord::Schema.define(:version => 20090822141745) do
 
   create_table "feeds", :force => true do |t|
-    t.string   "url",             :null => false
+    t.string   "url",                :null => false
     t.string   "title"
     t.datetime "last_checked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_sent_entry_id"
   end
 
   create_table "subscriptions", :force => true do |t|

@@ -1,6 +1,8 @@
 class Feed < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, :through => :subscriptions
+  belongs_to :last_sent_entry, :class_name => "Entry",
+    :foreign_key => "last_sent_entry_id"
 
   validate :valid_url_from_user?
   validates_presence_of :url
