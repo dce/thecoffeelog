@@ -23,4 +23,18 @@ class UserTest < ActiveSupport::TestCase
       assert @user.active?
     end
   end
+
+  context "The User class" do
+    setup do
+      @user1 = Factory(:user)
+      @user2 = Factory(:user)
+      @feed  = Factory(:feed)
+      @user1.feeds << @feed
+    end
+
+    should "find a list of users with entries" do
+      Factory(:entry, :feed => @feed)
+      assert_equal [@user1], User.with_entries
+    end
+  end
 end
