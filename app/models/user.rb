@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   before_save :generate_access_token
 
+  named_scope :with_entries, :joins => { :feeds => :entries }
+
   def activate!
     self.update_attribute(:active, true)
   end
