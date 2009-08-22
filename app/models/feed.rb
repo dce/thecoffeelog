@@ -1,6 +1,8 @@
 class Feed < ActiveRecord::Base
   has_many :subscriptions
-  has_many :users, :through => "subscriptions"
+  has_many :users, :through => :subscriptions
+  belongs_to :last_sent_entry, :class_name => "Entry",
+    :foreign_key => "last_sent_entry_id"
 
   validate :valid_url_from_user?
   validates_presence_of :url
@@ -8,6 +10,11 @@ class Feed < ActiveRecord::Base
   before_create :set_feed_title
 
   attr_accessor :url_from_user
+
+  def self.for(url)
+    feed_url = Feedbag.find(url).first
+    find_or_create_by_url(feed_url) if feed_url
+  end
 
   private
 
