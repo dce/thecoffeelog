@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822015606) do
+ActiveRecord::Schema.define(:version => 20090822141411) do
+
+  create_table "entries", :force => true do |t|
+    t.string   "title",      :null => false
+    t.string   "link",       :null => false
+    t.text     "content"
+    t.string   "unique_key", :null => false
+    t.string   "author"
+    t.integer  "feed_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feeds", :force => true do |t|
     t.string   "url",             :null => false
