@@ -1,0 +1,68 @@
+--- !ruby/object:Gem::Specification 
+name: damog-feedbag
+version: !ruby/object:Gem::Version 
+  version: 0.5.99
+platform: ruby
+authors: 
+- Axiombox
+- David Moreno
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-02-10 00:00:00 -05:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: hpricot
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0.6"
+    version: 
+description: Ruby's favorite feed auto-discoverty tool
+email: david@axiombox.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.markdown
+- COPYING
+files: 
+- lib/feedbag.rb
+- benchmark/rfeedfinder_benchmark.rb
+- README.markdown
+- COPYING
+has_rdoc: true
+homepage: http://axiombox.com/feedbag
+post_install_message: 
+rdoc_options: 
+- --main
+- README.markdown
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: feedbag
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 2
+summary: Ruby's favorite feed auto-discovery tool
+test_files: []
+
