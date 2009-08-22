@@ -2,8 +2,7 @@
 <h2><%= feed.title %><h2>
 
 <%- feed.entries.each do |entry| -%>
-<h3><%= entry.title %> <%= link_to "&raquo;", entry.link %></h3>
-
+<h3><%= link_to entry.title, entry.link %></h3>
 <%= entry.content %>
 <%- end -%>
 <%- end -%>
