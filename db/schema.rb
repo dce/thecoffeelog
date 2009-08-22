@@ -10,7 +10,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20090822153531) do
-
   create_table "entries", :force => true do |t|
     t.string   "title",        :null => false
     t.string   "link",         :null => false
@@ -24,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20090822153531) do
   end
 
   create_table "feeds", :force => true do |t|
-    t.string   "url",                          :null => false
+    t.string   "url",               :null => false
     t.string   "title"
     t.datetime "last_checked_at"
     t.datetime "created_at"
