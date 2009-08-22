@@ -1,0 +1,21 @@
+= VlCruiseControl
+
+This is a plugin that works with CruiseControl.rb to cause a build to fail if a coverage target is not met. If the code coverage (reported by RCov) meets the target, the build will pass; otherwise, an exception will be raised, breaking the build. In addition, the build will break if any tests fail.
+
+This plugin requires RCov (http://eigenclass.org/hiki.rb?rcov) in order to be useful. If RCov is not installed, coverage reports will not be generated, and coverage targets will be ignored. This eliminates the need to install RCov on systems that will not run tests, such as your production servers.
+
+To use this plugin, add a call to <tt>require_coverage</tt> to your Rakefile, such as:
+
+  require_coverage(90)
+
+The argument to <tt>require_coverage</tt> specifies the coverage target; the default if not specified is 100%. In our example above, therefore, the target is 90%.
+
+Coverage is calculated by running rcov and parsing its output. If a task viget:coverage:report:local is defined, it will be used to calculate coverage instead of the built-in task. If RSpec is installed, its spec:rcov task will be used.
+
+The default behavior is to pass if the actual coverage is equal to or greater than the target. You can also pass an options hash as the second argument. Currently, the only option recognized is :exact, which specifies whether the coverage should be exactly equal to the target:
+
+  require_coverage(90, :exact => true)
+
+In this case, the build would also break if the actual coverage exceeds the target. You might prefer this if you choose to set conservative targets, then raise them as your coverage improves beyond those targets. This is similar to RSpec's verify_rcov task. 
+
+Copyright (c) 2007-8 Mark Cornick and Viget Labs, released under the MIT license
