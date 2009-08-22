@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'rubygems'
 require 'tmail'
-require 'mms2r'
 require 'beanstalk-client'
  
 message = $stdin.read
