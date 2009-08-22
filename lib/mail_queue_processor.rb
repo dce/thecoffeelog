@@ -7,7 +7,7 @@ require 'yaml'
 @logger = Logger.new("#{RAILS_ROOT}/log/queue.#{Rails.env}.log")
 @logger.level = Logger::INFO
 
-BEANSTALK = Beanstalk::Pool.new(["#{BEANSTALK['ip']}:#{BEANSTALK['port']}"])
+BEANSTALK = Beanstalk::Pool.new(['127.0.0.1:11300'])
 
 loop do
   job = BEANSTALK.reserve
