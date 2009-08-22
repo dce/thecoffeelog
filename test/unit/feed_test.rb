@@ -5,7 +5,6 @@ class FeedTest < ActiveSupport::TestCase
 
     should_validate_presence_of :url
     should_have_many :subscriptions, :users
-    should_belong_to :last_sent_entry
 
     context "being created from a user url" do
       setup do
