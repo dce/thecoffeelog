@@ -9,7 +9,7 @@ namespace :coffeelog do
   desc "Send emails of updates"
   task :send_emails do
     User.active.with_entries.each do |user|
-      p user.inspect
+      FeedMailer.deliver_coffee_log(user)
     end
   end
 end

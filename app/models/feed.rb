@@ -10,6 +10,8 @@ class Feed < ActiveRecord::Base
 
   attr_accessor :url_from_user
 
+  named_scope :with_entries, :joins => :entries, :group => "entries.feed_id"
+
   def self.for(url)
     feed_url = Feedbag.find(url).first
     find_or_create_by_url(feed_url) if feed_url
