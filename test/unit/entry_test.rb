@@ -15,4 +15,16 @@ class EntryTest < ActiveSupport::TestCase
       assert @entry.unique_key.present?
     end
   end
+
+  context "The Entry class" do
+    setup do
+      @feed = Factory(:feed)
+    end
+
+    should "generate an entry from a feedtools item" do
+      data  = FeedTools::Feed.open('http://www.slashdot.org/index.rss')
+      entry = @feed.entries.from_feedtools(data.items.first)
+      assert entry.valid?
+    end
+  end
 end

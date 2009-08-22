@@ -8,6 +8,16 @@ class Entry < ActiveRecord::Base
 
   before_validation_on_create :generate_unique_key
 
+  def self.from_feedtools(entry)
+    new(
+      :title        => entry.title,
+      :link         => entry.link,
+      :author       => entry.author.try(:name),
+      :published_at => entry.published,
+      :content      => entry.content
+    )
+  end
+
   private
 
   def generate_unique_key
