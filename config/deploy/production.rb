@@ -9,5 +9,5 @@ role :db, "#{application}.com", :primary => true
 # set :user, "apache"   # for RHEL hosts
 set :user, "www-data" # for Ubuntu hosts
 
-# set :deploy_via, :rsync_with_remote_cache
-# set :local_cache, ".rsync_cache/production"
+set :deploy_via, :rsync_with_remote_cache
+set :local_cache, ".rsync_cache/production"

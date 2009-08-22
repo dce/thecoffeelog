@@ -1,4 +1,4 @@
-
+.rsync_cache/
 .DS_Store
 coverage/*
 log/*.log
