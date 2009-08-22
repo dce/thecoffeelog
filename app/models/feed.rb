@@ -10,6 +10,8 @@ class Feed < ActiveRecord::Base
 
   attr_accessor :url_from_user
 
+  named_scope :with_entries, :joins => :entries, :group => "entries.feed_id"
+
   def self.for(url)
     feed_url = Feedbag.find(url).first
     find_or_create_by_url(feed_url) if feed_url
@@ -58,7 +60,10 @@ class Feed < ActiveRecord::Base
     if last_sent
       all_entries[0, all_entries.index(last_sent)]
     else
-      all_entries.select {|e| e.published_at > self. last_sent_entry_published_at }
+      all_entries.select do |e|
+        self.last_sent_entry_published_at.nil? or
+        e.published_at > self.last_sent_entry_published_at
+      end
     end
   end
 end

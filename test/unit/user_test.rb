@@ -33,7 +33,7 @@ class UserTest < ActiveSupport::TestCase
     end
 
     should "find a list of users with entries" do
-      Factory(:entry, :feed => @feed)
+      2.times { Factory(:entry, :feed => @feed) }
       assert_equal [@user1], User.with_entries
     end
   end
