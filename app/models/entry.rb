@@ -19,7 +19,10 @@ class Entry < ActiveRecord::Base
   end
 
   def mark_as_last_sent
-    self.feed.update_attributes(:last_sent_entry_hash => self.unique_key)
+    self.feed.update_attributes(
+      :last_sent_entry_hash => self.unique_key,
+      :last_sent_entry_published_at => self.published_at
+    )
   end
 
   private

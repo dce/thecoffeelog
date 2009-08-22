@@ -15,9 +15,18 @@ class EntryTest < ActiveSupport::TestCase
       assert @entry.unique_key.present?
     end
 
-    should "mark as last sent" do
-      @entry.mark_as_last_sent
-      assert_equal @entry.unique_key, @entry.feed.last_sent_entry_hash
+    context "marking as last sent" do
+      setup do
+        @entry.mark_as_last_sent
+      end
+
+      should "set unique key" do
+        assert_equal @entry.unique_key, @entry.feed.last_sent_entry_hash
+      end
+
+      should "set publish date" do
+        assert_equal @entry.published_at, @entry.feed.last_sent_entry_published_at
+      end
     end
   end
 
