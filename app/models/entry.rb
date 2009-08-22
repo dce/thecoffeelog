@@ -3,7 +3,7 @@ require 'digest/md5'
 class Entry < ActiveRecord::Base
   belongs_to :feed
 
-  validates_presence_of :title, :link, :unique_key, :feed
+  validates_presence_of :title, :link, :unique_key, :published_at, :feed
   validates_uniqueness_of :unique_key
 
   before_validation_on_create :generate_unique_key
