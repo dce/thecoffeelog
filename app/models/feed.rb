@@ -58,7 +58,10 @@ class Feed < ActiveRecord::Base
     if last_sent
       all_entries[0, all_entries.index(last_sent)]
     else
-      all_entries.select {|e| e.published_at > self. last_sent_entry_published_at }
+      all_entries.select do |e|
+        self.last_sent_entry_published_at.nil? or
+        e.published_at > self.last_sent_entry_published_at
+      end
     end
   end
 end
