@@ -18,6 +18,10 @@ class Entry < ActiveRecord::Base
     )
   end
 
+  def mark_as_last_sent
+    self.feed.update_attributes(:last_sent_entry_hash => self.unique_key)
+  end
+
   private
 
   def generate_unique_key

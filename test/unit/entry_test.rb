@@ -14,6 +14,11 @@ class EntryTest < ActiveSupport::TestCase
     should "generate a unique key" do
       assert @entry.unique_key.present?
     end
+
+    should "mark as last sent" do
+      @entry.mark_as_last_sent
+      assert_equal @entry.unique_key, @entry.feed.last_sent_entry_hash
+    end
   end
 
   context "The Entry class" do
