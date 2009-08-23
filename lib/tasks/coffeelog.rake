@@ -15,4 +15,14 @@ namespace :coffeelog do
   task(:clear_entries => :environment) do
     Entry.delete_all
   end
+
+  desc "Handle new incoming messages" do
+  task(:poll_maildir => :environment) do
+    maildir = TMail::Maildir.new("/var/www/Maildir")
+
+    mailbox.each_new_port do |m|
+      mail = TMail::Mail.new(m)
+      Subscription.create_from_email_message(mail.from.to_s, mail.body.to_s)
+    end
+  end
 end
