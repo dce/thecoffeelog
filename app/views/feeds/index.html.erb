@@ -1,25 +1,31 @@
-<h2>Your Subscriptions</h2>
+<h3>Your Subscriptions</h3>
 
 <% if flash[:notice] %>
 <div id="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<ul>
-<% @user.subscriptions.each do |subscr| %>
-  <li>
-    <%= subscr.title %>
-    <%= link_to "Unsubscribe", user_feed_url(@user, subscr), :method => :delete %>
-  </li>
-<% end %>
-</ul>
+<div id="subscriptions">
+  <h4>Manage Sites</h4>
 
-<h2>New Subscription</h2>
+  <ul>
+  <% @user.subscriptions.each do |subscr| %>
+    <li class="<%= cycle('even', 'odd') %>">
+      <%= subscr.title %>
+      <%= link_to "Unsubscribe", user_feed_url(@user, subscr), :method => :delete %>
+    </li>
+  <% end %>
+  </ul>
+</div>
 
-<%= error_messages_for :feed %>
+<div id="new-feed">
+  <h4>Add Site</h4>
 
-<% form_for :feed, @feed, :url => user_feeds_url(@user) do |f| %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
+  <% form_for :feed, @feed, :url => user_feeds_url(@user) do |f| %>
+    <%= f.label :url, "Enter URL" %>
+    <%= f.text_field :url %>
+    <%= error_message_on :feed, :url, :class => "error" %>
+    <%= submit_tag "Add Site" %>
+  <% end %>
+</div>
 
-  <%= submit_tag "Add Site" %>
-<% end %>
+<div class="clear"></div>
