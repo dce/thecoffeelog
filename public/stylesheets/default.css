@@ -15,6 +15,10 @@ div.container {
   position: relative;
 }
 
+div.clear {
+  clear: both;
+}
+
 div#header {
   background: white url(/images/top-green-bar.gif) top left repeat-x;
   height: 100px;
@@ -56,23 +60,23 @@ div#content ol {
   padding: 50px 0;
 }
 
-div#content li {
+div#content ol li {
   list-style-type: none;
   padding: 15px 20px 20px;
   padding-left: 570px;
   color: #4d6f1b;
 }
 
-div#content li h3 {
+div#content ol li h3 {
   color: #9c745b;
   font-size: 2em;
 }
 
-div#content li img {
+div#content ol li img {
   display: none;
 }
 
-div#content li.active {
+div#content ol li.active {
   background-color: #ECEFE7;
   border: 2px solid #B3B9A9;
   -moz-border-radius: 10px;
@@ -80,15 +84,80 @@ div#content li.active {
   color: #2a3327;
 }
 
-div#content li.active h3 {
+div#content ol li.active h3 {
   color: #466913;
 }
 
-div#content li.active img {
+div#content ol li.active img {
   display: block;
   position: absolute;
   top: 0;
   left: -40px;
+}
+
+div#content.manage {
+  padding: 30px 0 50px;
+}
+
+div#content.manage h3 {
+  color: #466913;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+div#content.manage h4 {
+  color: #9c7558;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+div#content.manage div#subscriptions, div#content.manage div#new-feed {
+  background-color: #ecefe7;
+  padding: 20px;
+  border: 1px solid #a0a894;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+div#content.manage div#subscriptions {
+  float: left;
+  width: 580px;
+}
+
+div#content.manage div#new-feed {
+  float: left;
+  width: 270px;
+  margin-left: 20px;
+}
+
+div#content.manage ul {
+  list-style-type: none;
+}
+
+div#content.manage ul li {
+  padding: 3px 7px;
+  margin: 3px 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+div#content.manage ul li a {
+  display: block;
+  float: right;
+}
+
+div#content.manage ul li.even {
+  background-color: #f8faf7;
+  border: 1px solid #dbe3cf;
+}
+
+div#content.manage form input {
+  margin: 5px 0;
+}
+
+div#content.manage div.formError {
+  font-weight: bold;
+  color: #466913;
 }
 
 div#footer {
@@ -102,8 +171,4 @@ div#footer div.why, div#footer div.privacy, div#footer div.who {
 
 div#footer h3 {
   color: #2f5e7b;
-}
-
-div#footer div.clear {
-  clear: both;
 }

@@ -14,7 +14,7 @@ class FeedsController < ApplicationController
 
     if @feed.valid?
       @feed.save if @feed.new_record?
-      @user.feeds << @feed
+      Subscription.create(:user => @user, :feed => @feed)
       redirect_to user_feeds_url(@user)
     else
       render :action => "index"
