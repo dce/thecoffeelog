@@ -1,6 +1,6 @@
 <h2>We've added new items to your CoffeeLog!</h2>
 
-<%- if @failure.present? -%>
+<%- if @success.present? -%>
   <h1>Successful additions:</h1>
   <%- @success.each do |feed| -%>
     <h2><%= feed.title %></h2>
