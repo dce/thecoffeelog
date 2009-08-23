@@ -1,0 +1,9 @@
+# m h  dom mon dow   command
+
+MAILTO=david.eisinger@gmail.com
+
+0 2,6,10,14,18,22 * * * cd /var/www/thecoffeelog/current && /usr/local/bin/rake RAILS_ENV=production coffeelog:update_feeds --trace >> log/cron.log
+
+0 7 * * * cd /var/www/thecoffeelog/current && /usr/local/bin/rake RAILS_ENV=production coffeelog:send_emails --trace >> log/cron.log coffeelog:clear_entries
+
+*/2 * * * * cd /var/www/thecoffeelog/current && /usr/local/bin/rake RAILS_ENV=production coffeelog:poll_maildir --trace >> log/cron.log
