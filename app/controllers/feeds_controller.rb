@@ -9,17 +9,16 @@ class FeedsController < ApplicationController
   end
 
   def create
-    @url  = params[:feed][:url]
-    @feed = Feed.for(@url)
+    @link  = params[:feed][:url]
+    @feed = Feed.create_by_user_url(@link)
 
-    if @feed
-      @feed.save
+    if @feed.valid?
+      @feed.save if @feed.new_record?
       @user.feeds << @feed
+      redirect_to user_feeds_url(@user)
     else
-      flash[:notice] = "We couldn't find any feeds for <strong>#{@url}</strong>. Sorry!"
+      render :action => "index"
     end
-
-    redirect_to user_feeds_url(@user)
   end
 
   def destroy

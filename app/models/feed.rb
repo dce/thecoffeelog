@@ -8,13 +8,19 @@ class Feed < ActiveRecord::Base
 
   before_create :set_feed_title
 
-  attr_accessor :url_from_user
+  attr_accessor :unverified_url, :verified_url
 
   named_scope :with_entries, :joins => :entries, :group => "entries.feed_id"
 
   def self.for(url)
     feed_url = Feedbag.find(url).first
     find_or_create_by_url(feed_url) if feed_url
+  end
+
+  def self.create_by_user_url(url)
+    feed_url = Feedbag.find(url).first
+    feed = find_by_url(feed_url) if feed_url
+    feed || create(:unverified_url => url, :verified_url => feed_url)
   end
 
   def fetch_updates(limit = nil)
@@ -30,16 +36,18 @@ class Feed < ActiveRecord::Base
   private
 
   def valid_url_from_user?
-    if url_from_user
-      feeds = Feedbag.find(url_from_user)
+    if unverified_url.present?
+      self.url = verified_url
 
-      self.url = if feeds.any?
-        feeds.first
-      else
+      unless self.url
         self.errors.add(:url, "contains no feeds")
-        url_from_user
+        self.url = unverified_url
       end
     end
+  end
+
+  def verified_url
+    @verified_url ||= Feedbag.find(unverified_url).first
   end
 
   def feed_data
