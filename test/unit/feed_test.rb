@@ -7,7 +7,7 @@ class FeedTest < ActiveSupport::TestCase
 
     context "being created from a user url" do
       setup do
-        @feed = Feed.create(:url_from_user => "http://www.nytimes.com/")
+        @feed = Feed.create(:unverified_url => "http://www.nytimes.com/")
       end
 
       should "return a vaild feed from NY Times homepage url" do
