@@ -25,7 +25,7 @@ class SubscriptionTest < ActiveSupport::TestCase
 
       context "being created for an existing feed" do
         setup do
-          @feed = Feed.create(:url_from_user => "http://www.nytimes.com")
+          @feed = Feed.create(:unverified_url => "http://www.nytimes.com")
         end
 
         context "subscribing to it" do

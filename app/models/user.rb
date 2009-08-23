@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     self.update_attribute(:active, true)
   end
 
+  def to_param
+    self.access_token
+  end
+
   private
 
   def generate_access_token

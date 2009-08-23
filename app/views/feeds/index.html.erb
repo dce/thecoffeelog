@@ -1,0 +1,25 @@
+<h2>Your Subscriptions</h2>
+
+<% if flash[:notice] %>
+<div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<ul>
+<% @user.subscriptions.each do |subscr| %>
+  <li>
+    <%= subscr.title %>
+    <%= link_to "Unsubscribe", user_feed_url(@user, subscr), :method => :delete %>
+  </li>
+<% end %>
+</ul>
+
+<h2>New Subscription</h2>
+
+<%= error_messages_for :feed %>
+
+<% form_for :feed, @feed, :url => user_feeds_url(@user) do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
+  <%= submit_tag "Add Site" %>
+<% end %>
