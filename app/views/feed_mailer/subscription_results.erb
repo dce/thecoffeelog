@@ -1,0 +1,19 @@
+<h2>We've added new items to your CoffeeLog!</h2>
+
+<%- if @failure.present? -%>
+  <h1>Successful additions:</h1>
+  <%- @success.each do |feed| -%>
+    <h2><%= feed.title %></h2>
+    <%- feed.most_recent_items.each do |entry| -%>
+      <h3><%= link_to entry.title, entry.link %></h3>
+      <%= entry.content %>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>
+
+<%- if @failure.present? -%>
+  <h1>Failures:</h1>
+  <%- @failure.each do |feed| -%>
+    <h2><%= feed.url %></h2>
+  <%- end -%>
+<%- end -%>
