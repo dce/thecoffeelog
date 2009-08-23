@@ -1,5 +1,5 @@
 Thanks for signing up! You need to activate your account by clicking this link:
-<%= @user.activation_link %>
+<%= link_to user_feed_url(@user, :host => "http://thecoffeelog.com") %>
 
 Once activated your user will begin recieving updates for the following feeds:
 <%- @success.each do |feed| -%>

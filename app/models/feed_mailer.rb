@@ -7,7 +7,7 @@ class FeedMailer < ActionMailer::Base
     content_type  "text/html"
   end
   
-  def deliver_activation_email(user, success, failure)
+  def activation_email(user, success, failure)
     recipients    user.email
     from          "activate@thecoffeelog.com"
     subject       "Activate Your CoffeeLog"
@@ -15,7 +15,7 @@ class FeedMailer < ActionMailer::Base
     content_type  "text/html"
   end
 
-  def deliver_subscription_results(user, success, failure)
+  def subscription_results(user, success, failure)
     recipients    user.email
     from          "updates@thecoffeelog.com"
     subject       "Additions to your CoffeeLog"
