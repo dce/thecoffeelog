@@ -1,7 +1,8 @@
-Thanks for signing up! You need to activate your account by clicking this link:
-<%= link_to "Activate", user_feeds_url(@user, :host => "http://thecoffeelog.com") %>
+<h1>Thanks for signing up!</h1>
+<p>You need to activate your account by clicking this link:<br/>
+<%= link_to nil, user_feeds_url(@user, :host => "thecoffeelog.com") %></p>
 
-Once activated your user will begin recieving updates for the following feeds:
+<p>Once activated your user will begin recieving updates for the following feeds:</p>
 <%- @success.each do |feed| -%>
   <h2><%= feed.title %></h2>
   <%- feed.most_recent_items.each do |entry| -%>
