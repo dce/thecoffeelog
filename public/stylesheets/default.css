@@ -8,6 +8,7 @@ body {
 }
 
 a { color: #466913; }
+a:hover { color: #653614; }
 
 div.container {
   width: 960px;
@@ -26,7 +27,8 @@ div#header {
   border-bottom: 2px solid #B3B9A9;
 }
 
-div#header h1 {
+div#header h1 a {
+  display: block;
   text-indent: -9999px;
   background: url(/images/logo.gif);
   width: 326px;
