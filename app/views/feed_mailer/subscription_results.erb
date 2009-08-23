@@ -13,7 +13,15 @@
 
 <%- if @failure.present? -%>
   <h1>Failures:</h1>
+  <ul>
   <%- @failure.each do |feed| -%>
-    <h2><%= feed.url %></h2>
+    <li><%= feed.url %></li>
   <%- end -%>
+  </ul>
+<%- end -%>
+
+<h1>Your current subscription list:</h1>
+<p>To edit your subscriptions visit: <%= link_to nil, user_feeds_url(@user, :host => "thecoffeelog.com") %></p>
+<%- @user.feeds.each do |feed| -%>
+  <h2><%= feed.title %></h2>
 <%- end -%>
