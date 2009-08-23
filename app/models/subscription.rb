@@ -13,7 +13,9 @@ class Subscription < ActiveRecord::Base
     success, failure = urls.map {|u| Feed.for(u.first) }.partition {|f| f.valid? }
 
     user = User.find_or_create_by_email(from)
-    user.feeds << success
+    success.each do |feed|
+      Subscription.create(:user => user, :feed => feed)
+    end
 
     if user.active?
       FeedMailer.deliver_subscription_results(user, success, failure)
