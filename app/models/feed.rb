@@ -26,6 +26,10 @@ class Feed < ActiveRecord::Base
       items.first.mark_as_last_sent
     end
   end
+  
+  def most_recent_items
+    feed_data.first(3).map {|i| self.entries.from_feedtools(i) }
+  end
 
   private
 

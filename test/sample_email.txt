@@ -1,0 +1,32 @@
+Delivered-To: root@thecoffeelog.com
+Received: by 10.150.181.8 with SMTP id d8cs212943ybf;
+        Sun, 23 Aug 2009 07:27:25 -0700 (PDT)
+Received: by 10.220.17.86 with SMTP id r22mr1653884vca.99.1251037645369;
+        Sun, 23 Aug 2009 07:27:25 -0700 (PDT)
+Return-Path: <ren@packagetrackapp.com>
+Received: from qw-out-1920.google.com (qw-out-1920.google.com [74.125.92.146])
+        by mx.google.com with ESMTP id 29si4306075vws.115.2009.08.23.07.27.25;
+        Sun, 23 Aug 2009 07:27:25 -0700 (PDT)
+Received-SPF: neutral (google.com: 74.125.92.146 is neither permitted nor denied by best guess record for domain of ren@packagetrackapp.com) client-ip=74.125.92.146;
+Authentication-Results: mx.google.com; spf=neutral (google.com: 74.125.92.146 is neither permitted nor denied by best guess record for domain of ren@packagetrackapp.com) smtp.mail=ren@packagetrackapp.com
+Received: by qw-out-1920.google.com with SMTP id 5so916196qwc.8
+        for <ren.provey@gmail.com>; Sun, 23 Aug 2009 07:27:25 -0700 (PDT)
+Received: by 10.224.34.81 with SMTP id k17mr2109507qad.113.1251037645106;
+        Sun, 23 Aug 2009 07:27:25 -0700 (PDT)
+Return-Path: <ren@packagetrackapp.com>
+Received: from user-152-3-214-32.wireless.duke.edu (user-152-3-214-32.wireless.duke.edu [152.3.214.32])
+        by mx.google.com with ESMTPS id 20sm705817qyk.5.2009.08.23.07.27.23
+        (version=TLSv1/SSLv3 cipher=RC4-MD5);
+        Sun, 23 Aug 2009 07:27:23 -0700 (PDT)
+Message-Id: <E46CA39D-FF30-4D2C-AF8A-FB7122D68169@packagetrackapp.com>
+From: Ren Provey <ren@packagetrackapp.com>
+To: Ren Provey <ren.provey@gmail.com>
+Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (Apple Message framework v936)
+Subject: su
+Date: Sun, 23 Aug 2009 10:26:21 -0400
+X-Mailer: Apple Mail (2.936)
+
+http://nytimes.com/
+http://slashdot.org/
