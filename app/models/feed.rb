@@ -14,11 +14,6 @@ class Feed < ActiveRecord::Base
 
   def self.for(url)
     feed_url = Feedbag.find(url).first
-    find_or_create_by_url(feed_url) if feed_url
-  end
-
-  def self.create_by_user_url(url)
-    feed_url = Feedbag.find(url).first
     feed = find_by_url(feed_url) if feed_url
     feed || create(:unverified_url => url, :verified_url => feed_url)
   end

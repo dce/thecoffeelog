@@ -10,7 +10,7 @@ class FeedsController < ApplicationController
 
   def create
     @link  = params[:feed][:url]
-    @feed = Feed.create_by_user_url(@link)
+    @feed = Feed.for(@link)
 
     if @feed.valid?
       @feed.save if @feed.new_record?
