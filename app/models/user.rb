@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :subscriptions
   has_many :feeds, :through => :subscriptions
 
-  before_save :generate_access_token
+  before_create :generate_access_token
 
   named_scope :with_entries, :joins => { :feeds => :entries }, :group => :user_id
   named_scope :active, :conditions => ["active = ?", true]
