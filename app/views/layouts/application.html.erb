@@ -18,11 +18,12 @@
     <div id="content" class="manage">
       <div class="container">
 
-        <% if @first_visit %>
         <div id="welcome_message">
-          Welcome to TheCoffeeLog! Thanks for trying our product.
+          Welcome to TheCoffeeLog!
+          You can email more sites to
+          <a href="mailto:mailto:subscribe@thecoffeelog.com">subscribe@thecoffeelog.com</a>,
+          or just add them here.
         </div>
-        <% end %>
 
         <%= yield %>
       </div>
