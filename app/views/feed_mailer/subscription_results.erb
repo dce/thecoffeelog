@@ -1,7 +1,5 @@
-<h2>We've added new items to your CoffeeLog!</h2>
-
 <%- if @success.present? -%>
-  <h1>Successful additions:</h1>
+  <h1>We've added new items to your CoffeeLog!:</h1>
   <%- @success.each do |feed| -%>
     <h2><%= feed.title %></h2>
     <%- feed.most_recent_items.each do |entry| -%>
@@ -12,7 +10,7 @@
 <%- end -%>
 
 <%- if @failure.present? -%>
-  <h1>Failures:</h1>
+  <h1>We couldn't subscribe to the following sites:</h1>
   <ul>
   <%- @failure.each do |feed| -%>
     <li><%= feed.url %></li>

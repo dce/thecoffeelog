@@ -2,13 +2,22 @@
 <p>You need to activate your account by clicking this link:<br/>
 <%= link_to nil, user_root_url(@user, :host => "thecoffeelog.com") %></p>
 
-<p>Once activated your user will begin recieving updates for the following feeds:</p>
-<%- @success.each do |feed| -%>
+<p>Once activated your user will begin receiving updates for the following feeds:</p>
+<%- @user.feeds.each do |feed| -%>
   <h2><%= feed.title %></h2>
   <%- feed.most_recent_items.each do |entry| -%>
     <h3><%= link_to entry.title, entry.link %></h3>
     <%= entry.content %>
   <%- end -%>
+<%- end -%>
+
+<%- if @failure.present? -%>
+  <h2>We couldn't subscribe to the following sites:</h2>
+  <ul>
+  <%- @failure.each do |feed| -%>
+    <li><%= feed.url %></li>
+  <%- end -%>
+  </ul>
 <%- end -%>
 
 <p>To edit your subscriptions visit: <%= link_to nil, user_root_url(@user, :host => "thecoffeelog.com") %></p>

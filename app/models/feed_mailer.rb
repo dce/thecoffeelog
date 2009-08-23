@@ -6,12 +6,12 @@ class FeedMailer < ActionMailer::Base
     body          :user => user
     content_type  "text/html"
   end
-  
-  def activation_email(user, success, failure)
+
+  def activation_email(user, failure)
     recipients    user.email
     from          "activate@thecoffeelog.com"
     subject       "Activate Your CoffeeLog"
-    body          :user => user, :success => success, :failure => failure
+    body          :user => user, :failure => failure
     content_type  "text/html"
   end
 

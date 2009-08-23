@@ -20,7 +20,7 @@ class Subscription < ActiveRecord::Base
     if user.active?
       FeedMailer.deliver_subscription_results(user, success, failure)
     else
-      FeedMailer.deliver_activation_email(user, success, failure)
+      FeedMailer.deliver_activation_email(user, failure)
     end
   end
 
