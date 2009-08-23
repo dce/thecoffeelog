@@ -1,2 +1,9 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+  $("#content ol li img").hide();
+  $("#content ol li.active img").fadeIn();
+  
+  $("#content ol li").hover(function() {
+    $(this).addClass("active").find("img").fadeIn();
+    $(this).siblings().removeClass("active").find("img").fadeOut();
+  });
+});

@@ -18,6 +18,13 @@
 
     <div id="content" class="manage">
       <div class="container">
+
+        <% if @first_visit %>
+        <div id="welcome_message">
+          Welcome to TheCoffeeLog! Thanks for trying our product.
+        </div>
+        <% end %>
+
         <%= yield %>
       </div>
     </div>
@@ -29,19 +36,19 @@
 
           <ul>
             <li>
-              <strong>No logins required</strong> – sign up with an
+              <strong>No logins required</strong> &ndash; sign up with an
               email, and manage
               your subscriptions by following the link at the bottom
               of each email.
             </li>
 
             <li>
-              <strong>As minimal as possible</strong> –
+              <strong>As minimal as possible</strong> &ndash;
               no application to download or website to navigate.
             </li>
 
             <li>
-              <strong>No distractions</strong> –
+              <strong>No distractions</strong> &ndash;
               just an email in your inbox when you
               wake up.
             </li>

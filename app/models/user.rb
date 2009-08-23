@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
-  has_many :subscriptions
+  has_many :subscriptions, :order => "title"
   has_many :feeds, :through => :subscriptions
 
   before_create :generate_access_token

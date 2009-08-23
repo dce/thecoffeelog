@@ -38,10 +38,10 @@ div#header h1 {
 div#header h2 {
   color: #76A92B;
   position: absolute;
-  left: 450px;
-  top: 10px;
+  left: 570px;
+  top: 22px;
   line-height: 1.5em;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 div#header h2 em {
@@ -74,6 +74,9 @@ div#content ol li h3 {
 
 div#content ol li img {
   display: none;
+  position: absolute;
+  top: 0;
+  left: -40px;
 }
 
 div#content ol li.active {
@@ -90,9 +93,6 @@ div#content ol li.active h3 {
 
 div#content ol li.active img {
   display: block;
-  position: absolute;
-  top: 0;
-  left: -40px;
 }
 
 div#content.manage {
@@ -137,8 +137,6 @@ div#content.manage ul {
 div#content.manage ul li {
   padding: 3px 7px;
   margin: 3px 0;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
 }
 
 div#content.manage ul li a {
@@ -149,6 +147,8 @@ div#content.manage ul li a {
 div#content.manage ul li.even {
   background-color: #f8faf7;
   border: 1px solid #dbe3cf;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }
 
 div#content.manage form input {
@@ -158,6 +158,17 @@ div#content.manage form input {
 div#content.manage div.formError {
   font-weight: bold;
   color: #466913;
+}
+
+div#welcome_message {
+  font-weight: bold;
+  padding: 5px 8px;
+  margin-bottom: 20px;
+  background-color: #f8faf7;
+  border: 1px solid #dbe3cf;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  text-align: center;
 }
 
 div#footer {
