@@ -7,6 +7,8 @@ body {
   padding-bottom: 30px;
 }
 
+a { color: #466913; }
+
 div.container {
   width: 960px;
   margin: 0 auto;
