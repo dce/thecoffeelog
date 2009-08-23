@@ -16,7 +16,7 @@ namespace :coffeelog do
     Entry.delete_all
   end
 
-  desc "Handle new incoming messages" do
+  desc "Handle new incoming messages"
   task(:poll_maildir => :environment) do
     maildir = TMail::Maildir.new("/var/www/Maildir")
 
