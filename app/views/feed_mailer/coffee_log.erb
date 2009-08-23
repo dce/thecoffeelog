@@ -1,8 +1,10 @@
 <%- @user.feeds.with_entries.each do |feed| -%>
-<h2><%= feed.title %><h2>
+  <h2><%= feed.title %><h2>
 
-<%- feed.entries.each do |entry| -%>
-<h3><%= link_to entry.title, entry.link %></h3>
-<%= entry.content %>
+  <%- feed.entries.each do |entry| -%>
+    <h3><%= link_to entry.title, entry.link %></h3>
+    <%= entry.content %>
+  <%- end -%>
 <%- end -%>
-<%- end -%>
+
+<p>To edit your subscriptions visit: <%= link_to nil, user_root_url(@user, :host => "thecoffeelog.com") %></p>
