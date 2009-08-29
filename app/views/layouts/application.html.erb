@@ -11,19 +11,21 @@
         <h1><a href="/">TheCoffeeLog</a></h1>
         <h2>
           <em>Send us an <a href="mailto:subscribe@thecoffeelog.com?body=http://daringfireball.net">email</a>;</em> we&rsquo;ll send updates
-          from you
+          from your favorite sites every morning.
       </div>
     </div>
 
     <div id="content" class="manage">
       <div class="container">
 
+        <% if @first_visit %>
         <div id="welcome_message">
           Welcome to TheCoffeeLog!
           You can email more sites to
           <a href="mailto:mailto:subscribe@thecoffeelog.com">subscribe@thecoffeelog.com</a>,
           or just add them here.
         </div>
+        <% end %>
 
         <%= yield %>
       </div>
