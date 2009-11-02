@@ -27,7 +27,7 @@ class Feed < ActiveRecord::Base
       items.first.mark_as_last_sent
     end
   end
-  
+
   def most_recent_items
     feed_data.items.first(3).map {|i| self.entries.from_feedtools(i) }
   end
@@ -69,6 +69,7 @@ class Feed < ActiveRecord::Base
     else
       all_entries.select do |e|
         self.last_sent_entry_published_at.nil? or
+        e.published_at.nil? or
         e.published_at > self.last_sent_entry_published_at
       end
     end
