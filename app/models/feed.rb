@@ -7,6 +7,7 @@ class Feed < ActiveRecord::Base
   validates_presence_of :url
 
   before_create :set_feed_title
+  before_create :set_last_sent_entry_published_at
 
   attr_accessor :unverified_url, :verified_url
 
@@ -55,6 +56,10 @@ class Feed < ActiveRecord::Base
 
   def set_feed_title
     self.title ||= feed_data.title
+  end
+
+  def set_last_sent_entry_published_at
+    self.last_sent_entry_published_at ||= Time.now - 24.hours
   end
 
   def new_entries
