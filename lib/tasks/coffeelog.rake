@@ -18,7 +18,7 @@ namespace :coffeelog do
 
   desc "Handle new incoming messages"
   task(:poll_maildir => :environment) do
-    maildir = TMail::Maildir.new("/var/www/Maildir")
+    maildir = TMail::Maildir.new("/home/deploy/Maildir")
 
     maildir.each_new_port do |m|
       mail = TMail::Mail.new(m)
